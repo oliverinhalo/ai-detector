@@ -1,0 +1,136 @@
+/* Design tokens.
+ *
+ * Phase 4 replaces these values. Every app must. Shipping the template's palette
+ * is the clearest tell of an unconsidered app — see
+ * .claude/skills/ship-weekly-app/references/design-direction.md
+ *
+ * Rule: components reference tokens, never raw colour values. */
+
+:root {
+  /* Neutral ramp — hue-shifted, because pure grey reads cheap. */
+  --n-50: #fbfbfa;
+  --n-100: #f4f4f2;
+  --n-200: #e8e8e4;
+  --n-300: #d4d4ce;
+  --n-400: #a8a8a0;
+  --n-500: #6d6d64;
+  --n-600: #56564e;
+  --n-700: #3c3c36;
+  --n-800: #262622;
+  --n-900: #161614;
+
+  --accent-500: #3b5bdb;
+  --accent-600: #2f49b5;
+  --accent-contrast: #ffffff;
+
+  --danger: #a4332b;
+  --success: #2f6b46;
+
+  /* Semantic layer — this is what components use. */
+  --surface: var(--n-50);
+  --surface-raised: #ffffff;
+  --surface-sunken: var(--n-100);
+  --border: var(--n-200);
+  --border-strong: var(--n-300);
+  --text: var(--n-900);
+  --text-muted: var(--n-600);
+  --text-faint: var(--n-500);
+  --accent: var(--accent-600);
+  --accent-text: var(--accent-contrast);
+  --focus: var(--accent-500);
+
+  /* Space — one scale, no values between its steps. */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+
+  /* Type — a 1.25 scale. Use only its steps. */
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: 1rem;
+  --t-lg: 1.25rem;
+  --t-xl: 1.5625rem;
+  --t-2xl: 1.953rem;
+  --t-3xl: 2.441rem;
+
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius: 6px;
+  --radius-lg: 10px;
+
+  /* Shadows are tinted, never pure black. */
+  --shadow-sm: 0 1px 2px rgb(22 22 20 / 0.06);
+  --shadow: 0 2px 8px -2px rgb(22 22 20 / 0.1), 0 1px 3px rgb(22 22 20 / 0.06);
+
+  /* The signature: AI-likelihood is drawn as highlighter pen, in three strengths. */
+  --hl-1: #fff0a8;
+  --hl-2: #ffc98a;
+  --hl-3: #ff9fa8;
+  --hl-ink: #161614;
+
+  --dur-state: 120ms;
+  --dur-move: 200ms;
+  --dur-enter: 300ms;
+  --ease-enter: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Dark mode is a designed palette, not an inversion. Surfaces lift off pure
+ * black, the accent desaturates, borders soften.
+ *
+ * Declared twice, without CSS nesting, so it works without a transpile step:
+ * once for the system preference (unless the user chose light), once for an
+ * explicit choice. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --surface: #0b0d10;
+    --surface-raised: #15181d;
+    --surface-sunken: #080a0c;
+    --border: #252a31;
+    --border-strong: #353b44;
+    --text: #e9ecef;
+    --text-muted: #a0a8b3;
+    --text-faint: #7e828b;
+    --accent: #8ea8ff;
+    --accent-text: #0b0d10;
+    --focus: #8ea8ff;
+    --hl-1: #4a3f10;
+    --hl-2: #63380f;
+    --hl-3: #6e1f33;
+    --hl-ink: #f2f4f6;
+
+    --danger: #e08a82;
+    --success: #7fb79a;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow: 0 2px 10px -2px rgb(0 0 0 / 0.5);
+  }
+}
+
+:root[data-theme='dark'] {
+  --surface: #0b0d10;
+  --surface-raised: #15181d;
+  --surface-sunken: #080a0c;
+  --border: #252a31;
+  --border-strong: #353b44;
+  --text: #e9ecef;
+  --text-muted: #a0a8b3;
+  --text-faint: #7e828b;
+  --accent: #8ea8ff;
+  --accent-text: #0b0d10;
+  --focus: #8ea8ff;
+  --hl-1: #4a3f10;
+  --hl-2: #63380f;
+  --hl-3: #6e1f33;
+  --hl-ink: #f2f4f6;
+
+  --danger: #e08a82;
+  --success: #7fb79a;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow: 0 2px 10px -2px rgb(0 0 0 / 0.5);
+}

@@ -1,0 +1,17 @@
+{
+  "name": "AI Detector",
+  "short_name": "AI Detector",
+  "description": "Upload an essay or report of any length and see which sentences read as AI-written, scored privately in your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfbfa",
+  "theme_color": "#0b0d10",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
