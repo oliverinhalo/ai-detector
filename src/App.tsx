@@ -90,8 +90,8 @@ export function App() {
             See which sentences read as <span className="hl hl-2">AI-written</span>.
           </h1>
           <p className="mt-4 max-w-prose text-[length:var(--t-lg)] text-[var(--text-muted)] text-pretty">
-            Drop in an essay or report of any length. Four detectors score every sentence, right
-            here in your browser. Your document is never uploaded.
+            Drop in an essay or report of any length. Fourteen signals weigh it up and every
+            sentence is scored, right here in your browser. Your document is never uploaded.
           </p>
 
           <section

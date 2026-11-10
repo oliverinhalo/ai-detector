@@ -1,0 +1,31 @@
+Why Remote Work Changed Everything
+
+Remote work isn't new. What's new is the scale. Before 2020, roughly five percent of full-time employees in the United States worked primarily from home. By mid-2020, that figure had surged past fifty percent. The infrastructure was already there — broadband, laptops, video conferencing — but the cultural permission wasn't.
+
+Let's start with productivity, because that's where the debate usually begins.
+
+The evidence is genuinely mixed. Some studies found productivity gains of thirteen percent among call center workers who shifted to home-based work. Others documented declines in collaborative output, particularly for roles requiring frequent ad hoc coordination. The honest answer is that it depends — on the task, the team, and the individual.
+
+What's less ambiguous is the effect on time. Commuting vanished. For the average American worker, that returned about fifty-four minutes to each day. Some of that time went back into work. Some went to sleep, childcare, or exercise. The reallocation wasn't trivial.
+
+Then there's geography. When location stopped determining employment, housing markets shifted. Mid-sized cities saw inflows. Expensive coastal metros saw outflows, though the "death of the city" predictions proved premature. Cities are sticky. They offer things remote work can't replicate: serendipity, density, the particular energy of being around other people doing ambitious things.
+
+But let's be clear about who benefited.
+
+Remote work is overwhelmingly a privilege of knowledge workers. Nurses can't work remotely. Neither can warehouse staff, electricians, baristas, or bus drivers. Roughly sixty percent of American jobs require physical presence. The remote work revolution was, for most of the labor force, something that happened to other people.
+
+This matters for how we interpret the data. When surveys report high satisfaction with hybrid arrangements, they're sampling a specific slice of the economy — one that was already better compensated and more autonomous.
+
+The management problem turned out to be harder than the technology problem.
+
+Most managers were trained, implicitly, to supervise presence. Remote work required supervising outcomes instead, which is more difficult and more revealing. It exposed teams where the work was unclear and roles where the value was ambiguous. That's uncomfortable, and some of the push for return-to-office is better explained by managerial anxiety than by any measured productivity loss.
+
+Onboarding is the genuine casualty. Junior employees learn by proximity — by overhearing, by watching someone handle a difficult call, by the small corrections that happen when you're sitting next to someone. Video calls don't carry that. Organizations that went fully remote without rebuilding apprenticeship have a cohort problem they won't see for another five years.
+
+So where does this leave us?
+
+Hybrid has won by default, not by design. Most large employers settled on two or three days in the office, a compromise that satisfies nobody completely and nearly everybody adequately. It preserves the commute for part of the week while keeping the flexibility that workers now treat as non-negotiable.
+
+The more interesting question isn't whether remote work persists. It will. The question is whether organizations ever get deliberate about it — whether they redesign meetings, documentation, and career development for distributed teams, or keep running an office-shaped company at a distance.
+
+Most, so far, have chosen the second option.

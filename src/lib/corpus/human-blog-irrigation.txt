@@ -1,0 +1,13 @@
+I spent three weeks trying to fix the irrigation timer and I still don't know what was wrong with it.
+
+It's a cheap thing, the kind you screw onto an outdoor tap, with a dial and two buttons and a little LCD that shows a watering can when it's happy. Mine was not happy. It would run at four in the morning as instructed, then run again at noon, which it had never been told to do, and then skip two days entirely. The tomatoes could not have cared less. The basil died.
+
+My neighbour Jim, who has opinions, said it was the solenoid. Jim says it's the solenoid about most things. I took it apart on the kitchen table — six screws, two of them stripped already — and found nothing obviously burnt or corroded. The battery contacts were fine. There was a dead woodlouse in there, which felt diagnostic but probably wasn't.
+
+So I did what you do. I bought a second identical timer, set them up side by side on a splitter, and watched. For four days they behaved identically and correctly. On the fifth, the new one started doing the noon thing.
+
+That's when I figured it out, or at least when I stopped being wrong in the same way. The problem wasn't the timer. It was me. I'd been setting the schedule while the dial was still on MANUAL, and the unit was quietly interpreting that as a second, additional program. It says this in the manual. Page three. Under a heading.
+
+I'm telling you this partly because it's funny and partly because of how long I spent certain the device was broken. Three weeks! I had a theory about temperature affecting the crystal oscillator. I read a forum thread from 2011. At no point did I consider that the thing worked exactly as designed and I had simply not read page three.
+
+Anyway. The basil's back in. Jim has been told the solenoid was fine, and has moved on to the gate hinge.
