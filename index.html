@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      AI Detector — Upload an essay or report of any length and see which sentences read as
+      AI-written, scored privately in your browser.
+    </title>
+    <meta
+      name="description"
+      content="Upload an essay or report of any length and see which sentences read as AI-written, scored privately in your browser. Free, no sign-up, works in your browser."
+    />
+    <link rel="canonical" href="https://ai-detector-5ir.pages.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AI Detector" />
+    <meta
+      property="og:description"
+      content="Upload an essay or report of any length and see which sentences read as AI-written, scored privately in your browser."
+    />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:url" content="https://ai-detector-5ir.pages.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AI Detector",
+        "description": "Upload an essay or report of any length and see which sentences read as AI-written, scored privately in your browser.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+
+    <script>
+      // Apply the stored theme before first paint so there is no flash.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      } catch (e) {
+        /* private mode: fall back to the media query */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

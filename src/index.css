@@ -1,0 +1,160 @@
+@import './styles/tokens.css';
+@import 'tailwindcss';
+
+/* Expose the tokens to Tailwind utilities so `bg-surface`, `text-muted` etc. work
+ * and components never need a raw colour. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-text);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-token: var(--radius);
+}
+
+html {
+  color-scheme: light dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Numbers that align, everywhere numbers appear in a column. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus is always visible and always on-brand. Never remove it. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Skip link: visible only when focused, which is when it matters. */
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: var(--s-4);
+  z-index: 50;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--accent-text);
+  transform: translateY(-200%);
+  transition: transform var(--dur-state) var(--ease-enter);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* The signature: highlighter pen. Ink stays readable on every strength, both themes. */
+.hl {
+  color: var(--hl-ink);
+  border-radius: 3px;
+  padding: 0.05em 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  cursor: pointer;
+}
+.hl-1 {
+  background: var(--hl-1);
+}
+.hl-2 {
+  background: var(--hl-2);
+}
+.hl-3 {
+  background: var(--hl-3);
+}
+.hl-selected,
+.hl:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 1px;
+}
+.doc-p {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 8rem;
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: var(--s-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  padding: 0 var(--s-4);
+  font-size: var(--t-sm);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--dur-state);
+}
+.btn:hover:not(:disabled) {
+  border-color: var(--text-muted);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+kbd {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 0 0.35em;
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+}
+.btn-primary kbd {
+  color: inherit;
+}

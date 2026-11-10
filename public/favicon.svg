@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI Detector">
+  <!-- Phase 4 replaces this with the app's own mark. -->
+  <rect width="64" height="64" rx="14" fill="#2f5540" />
+  <path d="M18 40.5 32 20l14 20.5" fill="none" stroke="#fbfbfa" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round" />
+</svg>
