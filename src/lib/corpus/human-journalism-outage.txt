@@ -1,0 +1,17 @@
+The fire started in a transformer vault beneath Pearl Street at 2:14 on a Tuesday afternoon, and by three o'clock most of lower Manhattan had no power and nobody could say why.
+
+Con Edison's first statement blamed a "equipment failure." Its second, issued four hours later, blamed water infiltration. Neither explanation accounted for the fact that the same vault had flooded twice in 2019 and had been flagged for replacement in a report that the utility's own engineers filed in March 2021.
+
+I obtained that report last month. It runs to forty-one pages and names the vault seventeen times.
+
+"We knew," said a Con Edison engineer who worked on the assessment and who asked not to be identified because he still works there. "Everybody on that team knew. It was on a list."
+
+The list is the problem. Con Edison maintains about 270 of these vaults below Manhattan, built mostly between 1928 and 1961, and its capital plan replaces roughly six a year. At that rate the last of them gets touched in 2068. Vault 14-B, the one that burned, was forty-third in the queue.
+
+Asked about the ranking, a company spokeswoman said prioritisation accounts for "load, condition, and criticality" and declined to discuss individual assets.
+
+The Public Service Commission has opened an inquiry. It has opened four previous inquiries into Con Edison outages since 2018. Two produced fines. One produced a settlement in which the company agreed to accelerate vault replacement, a commitment that, according to the capital filings, it has not met in any year since.
+
+Nobody died in the Pearl Street fire. Three firefighters were treated for smoke inhalation and a restaurant on Water Street lost a walk-in freezer's worth of inventory. The outage lasted nineteen hours.
+
+In the vault, the cause turned out to be what the engineers said it would be in 2021: a lead cable splice, degraded by decades of moisture, that finally let go.

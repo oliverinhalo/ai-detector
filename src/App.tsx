@@ -90,8 +90,8 @@ export function App() {
             See which sentences read as <span className="hl hl-2">AI-written</span>.
           </h1>
           <p className="mt-4 max-w-prose text-[length:var(--t-lg)] text-[var(--text-muted)] text-pretty">
-            Drop in an essay or report of any length. Five detectors score every sentence, right
-            here in your browser. Your document is never uploaded.
+            Drop in an essay or report of any length. Seventeen signals weigh it up and every
+            sentence is scored, right here in your browser. Your document is never uploaded.
           </p>
 
           <section
@@ -235,9 +235,13 @@ export function App() {
               No AI detector is accurate enough to be proof — not this one, not Turnitin, not
               GPTZero. All of them flag human writing, especially formal prose and writing by
               non-native English speakers. This tool looks for patterns (even sentence rhythm,
-              stock phrases, no personal voice); it is not a trained model and it cannot promise
-              that Turnitin or any other checker will agree with it. Use it to spot passages
-              worth rewriting in your own voice, not as a verdict.
+              stock phrases, chatbot staging, no personal voice); it is not a trained model and
+              it cannot promise that Turnitin or any other checker will agree with it.{' '}
+              <strong>A low score is not a clearance.</strong> On passages written after it was
+              tuned, it missed roughly three in five AI texts that deliberately imitate personal
+              human writing — first-person narration, contractions, specific figures. It is good
+              at catching chatbot register and bad at catching a chatbot told to sound like you.
+              Use it to spot passages worth rewriting in your own voice, not as a verdict.
             </p>
           </section>
         </main>

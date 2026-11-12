@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { type Analysis, flaggedCount } from '../lib/analyze';
-import { DETECTORS, explain } from '../lib/detectors';
+import { explain } from '../lib/detectors';
 
 interface Props {
   analysis: Analysis;
@@ -61,6 +61,13 @@ export function Report({ analysis, name, sensitivity, onSensitivity }: Props) {
 
   const sel = selected === null ? null : results[selected];
   const tone = analysis.score >= 60 ? 3 : analysis.score >= 35 ? 2 : 1;
+  // The score comes from document-wide evidence, so show that rather than an
+  // average of the per-sentence detectors, which only decide the highlighting.
+  const evidence = useMemo(
+    () => analysis.signals.filter((sig) => Math.abs(sig.logOdds) >= 0.3).slice(0, 6),
+    [analysis.signals],
+  );
+  const strongest = Math.max(0.6, ...evidence.map((sig) => Math.abs(sig.logOdds)));
 
   return (
     <section aria-labelledby="report-h" className="mt-8">
@@ -75,6 +82,18 @@ export function Report({ analysis, name, sensitivity, onSensitivity }: Props) {
         >
           <strong>Too short to judge reliably.</strong> Detectors need roughly 150 words or
           more; treat this score as a guess.
+        </p>
+      )}
+
+      {analysis.inconclusive && (
+        <p
+          role="status"
+          className="mb-4 rounded-[var(--radius)] border border-[var(--border-strong)] bg-[var(--surface-sunken)] p-3 text-sm"
+        >
+          <strong>Not enough signal to judge.</strong> This text is plain and impersonal enough
+          that it carries almost no evidence either way — a flat report or a technical note
+          reads like this whoever wrote it. A low score here does <em>not</em> mean the text is
+          human; it means this tool cannot tell.
         </p>
       )}
 
@@ -113,27 +132,37 @@ export function Report({ analysis, name, sensitivity, onSensitivity }: Props) {
         </div>
 
         <div className="rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-raised)] p-5 shadow-[var(--shadow-sm)]">
-          <h3 className="text-sm font-semibold">Five detectors, averaged</h3>
+          <h3 className="text-sm font-semibold">What the score is based on</h3>
           <ul className="mt-3 space-y-2">
-            {DETECTORS.map((d) => {
-              const v = analysis.detectorMeans[d.id];
+            {evidence.length === 0 && (
+              <li className="text-sm text-[var(--text-muted)]">
+                Nothing either way — this text carries little distinctive signal.
+              </li>
+            )}
+            {evidence.map((sig) => {
+              const ai = sig.logOdds > 0;
+              const share = Math.min(1, Math.abs(sig.logOdds) / strongest);
               return (
-                <li
-                  key={d.id}
-                  className="grid grid-cols-[7.5rem_1fr_2.5rem] items-center gap-3 text-sm"
-                >
-                  <span title={d.blurb}>{d.name}</span>
-                  <span
-                    className="h-2 overflow-hidden rounded-full bg-[var(--surface-sunken)]"
-                    aria-hidden="true"
-                  >
-                    <span
-                      className="block h-full bg-[var(--accent)]"
-                      style={{ width: `${Math.round(v * 100)}%` }}
-                    />
-                  </span>
-                  <span className="tnum text-right text-[var(--text-muted)]">
-                    {Math.round(v * 100)}%
+                <li key={sig.id} className="text-sm">
+                  <span className="grid grid-cols-[9rem_1fr] items-center gap-3">
+                    <span title={sig.detail}>{sig.name}</span>
+                    <span className="flex items-center gap-2">
+                      <span
+                        className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--surface-sunken)]"
+                        aria-hidden="true"
+                      >
+                        <span
+                          className="block h-full"
+                          style={{
+                            width: `${Math.round(share * 100)}%`,
+                            background: ai ? 'var(--hl-3)' : 'var(--accent)',
+                          }}
+                        />
+                      </span>
+                      <span className="w-24 shrink-0 text-xs text-[var(--text-muted)]">
+                        {ai ? 'points to AI' : 'points to a person'}
+                      </span>
+                    </span>
                   </span>
                 </li>
               );

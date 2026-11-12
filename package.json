@@ -17,6 +17,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "eval": "vite-node eval/run.ts",
     "budget": "node scripts/budget.mjs"
   },
   "dependencies": {
@@ -45,6 +46,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.0",
     "vite": "^7.1.9",
+    "vite-node": "3.2.4",
     "vitest": "^3.2.4"
   }
 }
