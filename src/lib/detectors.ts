@@ -46,7 +46,7 @@ export type Scores = Record<DetectorId, number>;
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
 
-const STOCK_PHRASES: readonly RegExp[] = [
+export const STOCK_PHRASES: readonly RegExp[] = [
   /\b(delve|delves|delving)\b/i,
   /\b(tapestry|testament|multifaceted|myriad|plethora|landscape of|realm of)\b/i,
   /\bit is (important|worth|crucial|essential) to (note|mention|recognize|understand|consider)\b/i,
@@ -70,6 +70,48 @@ const STOCK_PHRASES: readonly RegExp[] = [
   /\b(by (prioritizing|adopting|establishing|fostering|embracing)|ensur(e|es|ing) that)\b/i,
   /\b(a (comprehensive|holistic|balanced|collaborative|multifaceted) (approach|framework|strategy))\b/i,
   /\b(significant (challenges?|implications?|advancements?|impact)|key (innovations?|factors?|takeaways?))\b/i,
+];
+
+/**
+ * The coaching register of a chatbot answering "how do I get better at X":
+ * imperative advice, reassurance, and relentless second person. Humans write
+ * how-to prose too, so the second-person term alone is weak and only the
+ * advice and reassurance phrasings carry real weight.
+ */
+export const ADVICE =
+  /\b(the key is|remember that|focus on|start by|try to|make sure( to| you)?|be sure to|keep in mind|consider \w+ing|aim to|don'?t be afraid)\b/gi;
+export const REASSURANCE =
+  /(you'?re not alone|completely normal|don'?t worry|it'?s (okay|ok|fine) to|you'?ve got this|no need to|rest assured|the good news is|you'?re well on your way|that'?s perfectly)/gi;
+export const SECOND_PERSON = /\b(you|your|you're|you'll|you've|yours|yourself)\b/gi;
+
+/**
+ * The uplift register of model fiction: abstract consolation, the gentle
+ * reminder, the deep breath, the embrace of whatever the future held.
+ */
+export const UPLIFT =
+  /\b(quiet promise|everything felt possible|gentle reminder|ready to embrace|whatever the future|deep breath|newfound|sense of (purpose|wonder|belonging|possibility)|a reminder that|the warmth of|bathed in|a testament to|journey of|embrace (the|whatever)|yearning)\b/gi;
+
+/**
+ * The closing exhortation of an explainer: "continued investment will be
+ * essential to sustaining this momentum", "understanding this process is
+ * essential". Also the encyclopedic opener, "X is the process by which Y".
+ */
+export const ESSENTIAL_CLOSING =
+  /\b((will be|is|are|remains?|proves?) (essential|crucial|vital|key|critical|important|fundamental) (to|for|in)\b|challenges remain|understanding (this|these|the) \w+ is|continued \w+ (and|will)|contributing to \w+)/gi;
+export const DEFINITIONAL =
+  /\b(is the process by which|refers to the|is defined as|can be described as|is a (process|system|method|technique|phenomenon) (that|by which|in which))\b/gi;
+
+/**
+ * Register patterns, checked per sentence as well as document-wide. A sentence
+ * of chatbot coaching or model uplift carries no stock phrase from the list
+ * above, which is how a whole page of it used to read as human.
+ */
+const REGISTER_PHRASES: readonly RegExp[] = [
+  ADVICE,
+  REASSURANCE,
+  UPLIFT,
+  ESSENTIAL_CLOSING,
+  DEFINITIONAL,
 ];
 
 const TRANSITION_OPENERS = new Set([
@@ -123,7 +165,10 @@ function rhythm(sentences: Sentence[]): number[] {
 function phrasing(sentences: Sentence[]): number[] {
   return sentences.map((s) => {
     let hits = 0;
-    for (const re of STOCK_PHRASES) if (re.test(s.text)) hits += 1;
+    for (const re of STOCK_PHRASES)
+      if (new RegExp(re.source, re.flags.replace('g', '')).test(s.text)) hits += 1;
+    for (const re of REGISTER_PHRASES)
+      if (new RegExp(re.source, re.flags.replace('g', '')).test(s.text)) hits += 1;
     return hits === 0 ? 0 : hits === 1 ? 0.62 : 0.92;
   });
 }
